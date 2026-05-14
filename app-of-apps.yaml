@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/bunnyrdy/Argocd.git
+    targetRevision: main
+    path: apps          # Watches everything in the apps/ folder
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+
+  syncPolicy:
+    # automated:
+    #   prune: true       # Delete child apps when their YAML is removed from Git
+    #   selfHeal: true    # Revert manual changes back to Git state
+    syncOptions:
+      - CreateNamespace=true
