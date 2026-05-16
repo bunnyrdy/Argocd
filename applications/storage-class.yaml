@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: network-policies
+  name: storage-class
   namespace: argocd  # ArgoCD's namespace
   annotations:
     argocd.argoproj.io/sync-wave: "1"
