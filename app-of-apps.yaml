@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/bunnyrdy/Argocd.git
     targetRevision: main
-    path: namespaces          # Watches everything in the apps/ folder
+    path: applications          # Watches everything in the apps/ folder
 
   destination:
     server: https://kubernetes.default.svc
